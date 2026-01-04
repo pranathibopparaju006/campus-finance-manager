@@ -53,24 +53,24 @@ Campus Finance Manager is a student-centric web application designed to help col
 - Converting real-life problems into application logic
 
 ---
-
-## 📸 Screenshots
 ## 📸 Screenshots
 
 ### 🏠 Main Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Main Dashboard](./screenshots/dashboard.png)
 
 ### 📋 Expense List
-![Expense List](screenshots/expense-list.png)
+![Expense List](./screenshots/expense-list.png)
 
 ### 📊 Category Summary & Semester Budget
-![Budget Summary](screenshots/budget-summary.png)
+![Budget Summary](./screenshots/budget-summary.png)
 
-### 🎉 Event Planner (Attend / Skip)
-![Event Planner](screenshots/event-planner.png)
+### 🎉 Event Planner
+![Event Planner](./screenshots/event-planner.png)
 
 ### 🧾 Monthly Report
-![Monthly Report](screenshots/monthly-report.png)
+![Monthly Report](./screenshots/monthly-report.png)
+
+
 
 
 ---
