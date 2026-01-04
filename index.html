@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus Finance Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Campus Finance Manager</h1>
+    <p>Student Expense & Budget Planner</p>
+
+    <hr>
+
+    <!-- ADD EXPENSE -->
+    <h2>Add Expense 💳</h2>
+
+    <label>Amount (₹):</label>
+    <input type="number" id="amount">
+
+    <label>Category:</label>
+    <select id="category">
+      <option value="Mess">Mess</option>
+      <option value="Books">Books</option>
+      <option value="Travel">Travel</option>
+      <option value="Entertainment">Entertainment</option>
+    </select>
+
+    <label>Description:</label>
+    <input type="text" id="description">
+
+    <button type="button" onclick="addExpense()">Add Expense</button>
+
+    <hr>
+
+    <!-- EXPENSE LIST -->
+    <h2>Expense List 📋</h2>
+    <ul id="expenseList"></ul>
+
+    <hr>
+
+    <!-- CATEGORY SUMMARY -->
+    <h2>Category Summary 📊</h2>
+    <ul id="categorySummary"></ul>
+
+    <hr>
+
+    <!-- SEMESTER BUDGET -->
+    <h2>Semester Budget 🎓</h2>
+
+    <label>Set Semester Budget (₹):</label>
+    <input type="number" id="semesterBudget" oninput="checkSemesterBudget()">
+
+    <p id="budgetStatus"></p>
+
+    <hr>
+
+    <!-- EVENT PLANNER -->
+    <h2>Event Planner 🎉</h2>
+
+    <label>Event Name:</label>
+    <input type="text" id="eventName">
+
+    <label>Event Cost (₹):</label>
+    <input type="number" id="eventCost">
+
+    <button type="button" onclick="attendEvent()">Attend</button>
+    <button type="button" onclick="skipEvent()">Skip</button>
+
+    <p id="eventImpact"></p>
+
+    <hr>
+
+    <!-- MONTHLY REPORT -->
+    <h2>Monthly Report 🧾</h2>
+
+    <button type="button" onclick="generateMonthlyReport()">
+      Generate Report
+    </button>
+
+    <pre id="monthlyReport"></pre>
+
+    <button type="button" onclick="exportReport()">
+      Export Report (Text)
+    </button>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+
+</body>
+</html>
