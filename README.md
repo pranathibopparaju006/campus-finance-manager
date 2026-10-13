@@ -1,4 +1,4 @@
-# Campus Finance Manager
+﻿# Campus Finance Manager
 
 A responsive, browser-based finance dashboard designed to help college students record expenses, monitor a semester budget, compare campus-event costs, and generate monthly spending reports.
 
@@ -55,11 +55,11 @@ This project saves data in the browser profile on the device where it is used. C
 
 ```text
 campus-finance-manager/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── screenshots/
+|-- index.html
+|-- style.css
+|-- script.js
+|-- README.md
+\-- screenshots/
 ```
 
 ## Future improvements
@@ -74,3 +74,4 @@ campus-finance-manager/
 ## Author
 
 Built by **Pranathi**.
+
