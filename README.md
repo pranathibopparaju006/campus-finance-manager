@@ -1,87 +1,76 @@
-# Campus Finance Manager 💰
+# Campus Finance Manager
 
-Campus Finance Manager is a student-centric web application designed to help college students manage their daily expenses, semester budgets, and event spending decisions in a simple and practical way.
+A responsive, browser-based finance dashboard designed to help college students record expenses, monitor a semester budget, compare campus-event costs, and generate monthly spending reports.
 
----
+> **Project scope:** This version is a client-side web application. Data is stored in the current browser using `localStorage`; it does not include a server, account system, or cross-device sync.
 
-## 🚀 Features
+## Features
 
-### ✅ Expense Management
-- Add daily expenses with amount, category, and description
-- View all expenses in a clean list format
+- **Expense tracking:** Record amount, description, category, date, and payment method.
+- **Dashboard metrics:** View total spending, transaction count, remaining semester balance, and top spending category.
+- **Budget monitoring:** Set a semester budget and receive progress and overspending warnings.
+- **Transaction management:** Search and filter transactions and delete individual entries.
+- **Category analytics:** Compare spending by category with proportional visual bars.
+- **Campus event planner:** Estimate the cost of attending or skipping an event; attending adds an expense.
+- **Monthly reports:** Select a month and review totals, average transaction, category breakdown, and insights.
+- **Text export:** Export a generated monthly report as a `.txt` file.
+- **Local persistence:** Expenses and budget are retained across refreshes in the same browser.
+- **Responsive layout:** Desktop, tablet, and mobile-friendly interface.
+- **Input validation:** Validates required fields and positive monetary amounts.
 
-### 📊 Category-wise Summary
-- Automatically calculates total spending per category
-- Helps identify where most money is being spent
+## Technology stack
 
-### 🎓 Semester Budget Planner
-- Set a semester budget
-- Shows remaining balance
-- Displays warning when budget is exceeded
+- HTML5
+- CSS3 (responsive layout, CSS variables, media queries)
+- Vanilla JavaScript (DOM events, data aggregation, validation)
+- Browser `localStorage`
+- No build step or package installation required
 
-### 🎉 Event Planner (Attend / Skip)
-- Decide whether to attend or skip events
-- Shows impact on monthly budget (+₹ / −₹)
-- Attending an event adds it as an expense
+## Run locally
 
-### 🧾 Monthly Report
-- Generates a consolidated monthly report
-- Displays total spending and category breakdown
-- Provides top 3 spending insights automatically
+1. Download or clone this repository.
+2. Open `index.html` in a modern browser.
 
-### 📤 Export Report
-- Export monthly report as a text file
+For a local development server, you can use VS Code's Live Server extension or run:
 
-### 💾 Data Persistence
-- Uses browser localStorage to retain data even after page refresh
+```bash
+python -m http.server 8000
+```
 
----
+Then visit `http://localhost:8000`.
 
-## 🛠️ Technologies Used
-- HTML
-- CSS
-- JavaScript
-- Browser localStorage
+## How to use
 
----
+1. Add expenses with a description, amount, category, date, and payment method.
+2. Set a semester budget to view the remaining balance and usage percentage.
+3. Use search and category filters to find a transaction.
+4. Enter a campus event and estimated cost. Choose **Attend & add expense** to record it, or **Skip & compare** to view the estimated savings.
+5. Choose a month and generate a report. Export it as a text file if needed.
 
-## 🧠 What I Learned
-- DOM manipulation and event handling
-- Working with arrays and objects in JavaScript
-- Budget calculation and condition-based logic
-- Data persistence using localStorage
-- Converting real-life problems into application logic
+## Data and privacy
 
----
-## 📸 Screenshots
+This project saves data in the browser profile on the device where it is used. Clearing browser storage or switching browsers/devices may remove or hide saved entries. Do not use this demo to store sensitive financial information. It does not connect to a bank account or verify transactions.
 
-### 🏠 Main Dashboard
-![Main Dashboard](./screenshots/dashboard.png)
+## Project structure
 
-### 📋 Expense List
-![Expense List](./screenshots/expense-list.png)
+```text
+campus-finance-manager/
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── screenshots/
+```
 
-### 📊 Category Summary & Semester Budget
-![Budget Summary](./screenshots/budget-summary.png)
+## Future improvements
 
-### 🎉 Event Planner
-![Event Planner](./screenshots/event-planner.png)
+- Backend API and database persistence
+- Authentication and user-specific accounts
+- PDF/CSV export
+- Automated unit and end-to-end tests
+- More detailed charts and recurring expenses
+- Deployment with a public demo URL
 
-### 🧾 Monthly Report
-![Monthly Report](./screenshots/monthly-report.png)
+## Author
 
-
-
-
----
-
-## 🔮 Future Improvements
-- PDF export for reports
-- Better UI styling
-- Authentication for multiple users
-
----
-
-## 👩‍🎓 Author
-Built by **Pranathi**
-
+Built by **Pranathi**.
