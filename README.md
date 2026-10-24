@@ -1,41 +1,41 @@
 # Campus Finance Manager
 
-**[🌐 Live Demo](https://pranathibopparaju006.github.io/campus-finance-manager/)** | **[GitHub Repository](https://github.com/pranathibopparaju006/campus-finance-manager)**
+[**🌐 Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
 
 Try the live application to track expenses, manage your semester budget, plan campus events, and generate monthly reports.
 A responsive, browser-based finance dashboard designed to help college students record expenses, monitor a semester budget, compare campus-event costs, and generate monthly spending reports.
 
-> **Project scope:** This version is a client-side web application. Data is stored in the current browser using `localStorage`; it does not include a server, account system, or cross-device sync.
+> \*\*Project scope:\*\* This version is a client-side web application. Data is stored in the current browser using `localStorage`; it does not include a server, account system, or cross-device sync.
 
 ## Features
 
-- **Expense tracking:** Record amount, description, category, date, and payment method.
-- **Dashboard metrics:** View total spending, transaction count, remaining semester balance, and top spending category.
-- **Budget monitoring:** Set a semester budget and receive progress and overspending warnings.
-- **Transaction management:** Search and filter transactions and delete individual entries.
-- **Category analytics:** Compare spending by category with proportional visual bars.
-- **Campus event planner:** Estimate the cost of attending or skipping an event; attending adds an expense.
-- **Monthly reports:** Select a month and review totals, average transaction, category breakdown, and insights.
-- **Text export:** Export a generated monthly report as a `.txt` file.
-- **Local persistence:** Expenses and budget are retained across refreshes in the same browser.
-- **Responsive layout:** Desktop, tablet, and mobile-friendly interface.
-- **Input validation:** Checks positive and bounded monetary amounts, required text, valid calendar dates (including impossible dates), valid categories, and report month values.
+* **Expense tracking:** Record amount, description, category, date, and payment method.
+* **Dashboard metrics:** View total spending, transaction count, remaining semester balance, and top spending category.
+* **Budget monitoring:** Set a semester budget and receive progress and overspending warnings.
+* **Transaction management:** Search and filter transactions and delete individual entries.
+* **Category analytics:** Compare spending by category with proportional visual bars.
+* **Campus event planner:** Estimate the cost of attending or skipping an event; attending adds an expense.
+* **Monthly reports:** Select a month and review totals, average transaction, category breakdown, and insights.
+* **Text export:** Export a generated monthly report as a `.txt` file.
+* **Local persistence:** Expenses and budget are retained across refreshes in the same browser.
+* **Responsive layout:** Desktop, tablet, and mobile-friendly interface.
+* **Input validation:** Checks positive and bounded monetary amounts, required text, valid calendar dates (including impossible dates), valid categories, and report month values.
 
 ## Quality and safety checks
 
-- Strict calendar-date validation rejects impossible dates such as February 30.
-- Monetary inputs are checked against the limits shown by the app before saving.
-- User-provided text is HTML-escaped before being inserted into rendered tables and reports.
-- Report object URLs are released after the browser has a chance to start the download.
-- All information remains in this browser; clearing browser storage or using another browser/device may remove or hide the saved data.
+* Strict calendar-date validation rejects impossible dates such as February 30.
+* Monetary inputs are checked against the limits shown by the app before saving.
+* User-provided text is HTML-escaped before being inserted into rendered tables and reports.
+* Report object URLs are released after the browser has a chance to start the download.
+* All information remains in this browser; clearing browser storage or using another browser/device may remove or hide the saved data.
 
 ## Technology stack
 
-- HTML5
-- CSS3 (responsive layout, CSS variables, media queries)
-- Vanilla JavaScript (DOM events, data aggregation, validation)
-- Browser `localStorage`
-- No build step or package installation required
+* HTML5
+* CSS3 (responsive layout, CSS variables, media queries)
+* Vanilla JavaScript (DOM events, data aggregation, validation)
+* Browser `localStorage`
+* No build step or package installation required
 
 ## Run locally
 
@@ -55,7 +55,7 @@ Then visit `http://localhost:8000`.
 1. Add expenses with a description, amount, category, date, and payment method.
 2. Set a semester budget to view the remaining balance and usage percentage.
 3. Use search and category filters to find a transaction.
-4. Enter a campus event and estimated cost. Choose **Attend & add expense** to record it, or **Skip & compare** to view the estimated savings.
+4. Enter a campus event and estimated cost. Choose **Attend \& add expense** to record it, or **Skip \& compare** to view the estimated savings.
 5. Choose a month and generate a report. Export it as a text file if needed.
 
 ## Data and privacy
@@ -70,17 +70,37 @@ campus-finance-manager/
 |-- style.css
 |-- script.js
 |-- README.md
-\-- screenshots/
+\\-- screenshots/
 ```
+
+## \## Screenshots
+
+## 
+
+## \### Dashboard
+
+## !\[Campus Finance Manager Dashboard](screenshots/dashboard.png)
+
+## 
+
+## \### Transactions and Event Planner
+
+## !\[Transactions and Event Planner](screenshots/transactions.png)
+
+## 
+
+## \### Monthly Reports
+
+## !\[Monthly Reports](screenshots/reports.png)
 
 ## Future improvements
 
-- Backend API and database persistence
-- Authentication and user-specific accounts
-- PDF/CSV export
-- Automated unit and end-to-end tests
-- More detailed charts and recurring expenses
-- Deployment with a public demo URL
+* Backend API and database persistence
+* Authentication and user-specific accounts
+* PDF/CSV export
+* Automated unit and end-to-end tests
+* More detailed charts and recurring expenses
+* Deployment with a public demo URL
 
 ## Author
 
