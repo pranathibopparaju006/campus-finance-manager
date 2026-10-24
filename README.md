@@ -1,4 +1,4 @@
-﻿# Campus Finance Manager
+# Campus Finance Manager
 
 [**ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
 
@@ -83,7 +83,9 @@ campus-finance-manager/
 ![Campus Event Planner](screenshots/event-planner.png)
 
 ### Monthly Report
-![Monthly Report](screenshots/monthly-report.png)## Future improvements
+![Monthly Report](screenshots/monthly-report.png)
+
+## Future improvements
 
 \\\* Backend API and database persistence
 \\\* Authentication and user-specific accounts
@@ -95,7 +97,6 @@ campus-finance-manager/
 ## Author
 
 Built by \\\*\\\*Pranathi\\\*\\\*.
-
 
 
 
