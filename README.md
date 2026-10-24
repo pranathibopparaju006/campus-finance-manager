@@ -1,11 +1,11 @@
 ﻿# Campus Finance Manager
 
-[**ðŸŒ Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
+[**ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
 
 Try the live application to track expenses, manage your semester budget, plan campus events, and generate monthly reports.
 A responsive, browser-based finance dashboard designed to help college students record expenses, monitor a semester budget, compare campus-event costs, and generate monthly spending reports.
 
-> \*\*Project scope:\*\* This version is a client-side web application. Data is stored in the current browser using `localStorage`; it does not include a server, account system, or cross-device sync.
+> \\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\*Project scope:\\\\\\\\\\\\\\\*\\\\\\\\\\\\\\\* This version is a client-side web application. Data is stored in the current browser using `localStorage`; it does not include a server, account system, or cross-device sync.
 
 ## Features
 
@@ -70,40 +70,33 @@ campus-finance-manager/
 |-- style.css
 |-- script.js
 |-- README.md
-\\-- screenshots/
-```
+\\\\\\\\\\\\\\\\-- screenshots/
+## Screenshots
 
-## \## Screenshots
+### Dashboard
+![Campus Finance Manager Dashboard](screenshots/dashboard.png)
 
-## 
+### Spending by Category
+![Spending by Category](screenshots/category-summary.png)
 
-## \### Dashboard
+### Campus Event Planner
+![Campus Event Planner](screenshots/event-planner.png)
 
-## !\[Campus Finance Manager Dashboard](screenshots/dashboard.png)
+### Monthly Report
+![Monthly Report](screenshots/monthly-report.png)## Future improvements
 
-## 
-
-## \### Transactions and Event Planner
-
-## !\[Transactions and Event Planner](screenshots/transactions.png)
-
-## 
-
-## \### Monthly Reports
-
-## !\[Monthly Reports](screenshots/reports.png)
-
-## Future improvements
-
-* Backend API and database persistence
-* Authentication and user-specific accounts
-* PDF/CSV export
-* Automated unit and end-to-end tests
-* More detailed charts and recurring expenses
-* Deployment with a public demo URL
+\\\* Backend API and database persistence
+\\\* Authentication and user-specific accounts
+\\\* PDF/CSV export
+\\\* Automated unit and end-to-end tests
+\\\* More detailed charts and recurring expenses
+\\\* Deployment with a public demo URL
 
 ## Author
 
-Built by **Pranathi**.
+Built by \\\*\\\*Pranathi\\\*\\\*.
+
+
+
 
 
