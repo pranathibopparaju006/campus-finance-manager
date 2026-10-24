@@ -1,6 +1,6 @@
-# Campus Finance Manager
+﻿# Campus Finance Manager
 
-[**🌐 Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
+[**ðŸŒ Live Demo**](https://pranathibopparaju006.github.io/campus-finance-manager/) | [**GitHub Repository**](https://github.com/pranathibopparaju006/campus-finance-manager)
 
 Try the live application to track expenses, manage your semester budget, plan campus events, and generate monthly reports.
 A responsive, browser-based finance dashboard designed to help college students record expenses, monitor a semester budget, compare campus-event costs, and generate monthly spending reports.
@@ -105,4 +105,5 @@ campus-finance-manager/
 ## Author
 
 Built by **Pranathi**.
+
 
