@@ -84,7 +84,15 @@
   }
 
   function validDate(value) {
-    return typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00`));
+    if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+    const [year, month, day] = value.split("-").map(Number);
+    const date = new Date(year, month - 1, day);
+    return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
+  }
+
+  function validMoney(value, maximum = 10000000) {
+    const amount = Number(value);
+    return Number.isFinite(amount) && amount > 0 && amount <= maximum;
   }
 
   function currency(value) {
@@ -253,14 +261,28 @@
     event.preventDefault();
     const amount = Number($("amount").value);
     const description = $("description").value.trim();
-    if (!description || !Number.isFinite(amount) || amount <= 0) {
-      showToast("Enter a description and an amount greater than zero.");
+    const date = $("expenseDate").value;
+    const category = $("category").value;
+    if (!description || description.length > 90) {
+      showToast("Enter a description between 1 and 90 characters.");
+      $("description").focus();
       return;
     }
-    addExpense({
-      amount, description, category: $("category").value,
-      date: $("expenseDate").value, paymentMethod: $("paymentMethod").value
-    });
+    if (!validMoney(amount)) {
+      showToast("Enter an amount greater than ₹0 and no more than ₹1,00,00,000.");
+      $("amount").focus();
+      return;
+    }
+    if (!validDate(date)) {
+      showToast("Choose a valid expense date.");
+      $("expenseDate").focus();
+      return;
+    }
+    if (!CATEGORIES.includes(category)) {
+      showToast("Choose a valid expense category.");
+      return;
+    }
+    addExpense({ amount, description, category, date, paymentMethod: $("paymentMethod").value });
     $("expenseForm").reset();
     $("expenseDate").value = todayISO();
     $("description").focus();
@@ -270,8 +292,9 @@
   function onBudgetSubmit(event) {
     event.preventDefault();
     const value = Number($("semesterBudget").value);
-    if (!Number.isFinite(value) || value <= 0) {
-      showToast("Enter a budget greater than zero.");
+    if (!validMoney(value, 100000000)) {
+      showToast("Enter a budget greater than ₹0 and no more than ₹10,00,00,000.");
+      $("semesterBudget").focus();
       return;
     }
     semesterBudget = value;
@@ -285,8 +308,8 @@
     const name = $("eventName").value.trim();
     const cost = Number($("eventCost").value);
     const date = $("eventDate").value;
-    if (!name || !Number.isFinite(cost) || cost <= 0) {
-      showToast("Enter an event name and cost greater than zero.");
+    if (!name || name.length > 90 || !validMoney(cost) || !validDate(date)) {
+      showToast("Enter an event name, valid date, and cost greater than ₹0.");
       return;
     }
     addExpense({ amount: cost, category: "Entertainment", description: `Event: ${name}`, date, paymentMethod: "Other" });
@@ -300,8 +323,8 @@
   function skipEvent() {
     const name = $("eventName").value.trim();
     const cost = Number($("eventCost").value);
-    if (!name || !Number.isFinite(cost) || cost <= 0) {
-      showToast("Enter an event name and estimated cost first.");
+    if (!name || name.length > 90 || !validMoney(cost) || !validDate($("eventDate").value)) {
+      showToast("Enter an event name, valid date, and estimated cost first.");
       return;
     }
     $("eventImpact").className = "event-impact warning";
@@ -314,6 +337,10 @@
 
   function generateMonthlyReport() {
     const month = $("reportMonth").value || todayISO().slice(0, 7);
+    if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(month)) {
+      showToast("Choose a valid month for the report.");
+      return;
+    }
     const items = expenses.filter((item) => monthKey(item.date) === month);
     const total = totalSpent(items);
     const totals = categoryTotals(items);
@@ -375,7 +402,7 @@
     document.body.appendChild(link);
     link.click();
     link.remove();
-    URL.revokeObjectURL(url);
+    window.setTimeout(() => URL.revokeObjectURL(url), 1000);
     showToast("Report export started.");
   }
 
@@ -410,6 +437,8 @@
     $("expenseDate").value = todayISO();
     $("eventDate").value = todayISO();
     $("reportMonth").value = todayISO().slice(0, 7);
+    $("description").maxLength = 90;
+    $("eventName").maxLength = 90;
 
     $("expenseForm").addEventListener("submit", onExpenseSubmit);
     $("budgetForm").addEventListener("submit", onBudgetSubmit);

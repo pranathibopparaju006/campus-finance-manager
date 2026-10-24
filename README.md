@@ -1,4 +1,4 @@
-﻿# Campus Finance Manager
+# Campus Finance Manager
 
 **[🌐 Live Demo](https://pranathibopparaju006.github.io/campus-finance-manager/)** | **[GitHub Repository](https://github.com/pranathibopparaju006/campus-finance-manager)**
 
@@ -19,7 +19,15 @@ A responsive, browser-based finance dashboard designed to help college students 
 - **Text export:** Export a generated monthly report as a `.txt` file.
 - **Local persistence:** Expenses and budget are retained across refreshes in the same browser.
 - **Responsive layout:** Desktop, tablet, and mobile-friendly interface.
-- **Input validation:** Validates required fields and positive monetary amounts.
+- **Input validation:** Checks positive and bounded monetary amounts, required text, valid calendar dates (including impossible dates), valid categories, and report month values.
+
+## Quality and safety checks
+
+- Strict calendar-date validation rejects impossible dates such as February 30.
+- Monetary inputs are checked against the limits shown by the app before saving.
+- User-provided text is HTML-escaped before being inserted into rendered tables and reports.
+- Report object URLs are released after the browser has a chance to start the download.
+- All information remains in this browser; clearing browser storage or using another browser/device may remove or hide the saved data.
 
 ## Technology stack
 
