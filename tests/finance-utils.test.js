@@ -15,7 +15,7 @@ test("validDate rejects malformed and impossible dates", () => {
 test("validMoney enforces positive finite amounts and maximum", () => {
   assert.equal(validMoney("0.01"), true);
   assert.equal(validMoney("10000000"), true);
-  for (const value of [0, -1, "abc", Infinity, NaN, "10000000.01"]) assert.equal(validMoney(value), false, String(value));
+  for (const value of [0, -1, "abc", Infinity, NaN, "10000000.01", true, false, null, undefined, "", "   "]) assert.equal(validMoney(value), false, String(value));
   assert.equal(validMoney("100000000", 100000000), true);
   assert.equal(validMoney("100000001", 100000000), false);
 });
