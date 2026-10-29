@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: "20"
       - name: Check application JavaScript syntax
-        run: node --check script.js
+        run: |\n          node --check script.js\n          node --check finance-utils.js\n      - name: Run utility behavior tests\n        run: node --test tests/*.test.js
