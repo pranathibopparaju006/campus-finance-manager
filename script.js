@@ -42,7 +42,7 @@
     const data = safeRead(STORAGE_KEYS.expenses, safeRead("expenses", []));
     if (!Array.isArray(data)) return [];
     return data.filter((item) =>
-      item && Number.isFinite(Number(item.amount)) && Number(item.amount) > 0 &&
+      item && validMoney(item.amount) &&
       typeof item.description === "string"
     ).map((item) => ({
       id: String(item.id || makeId()),
@@ -58,7 +58,7 @@
   function loadBudget() {
     const value = safeRead(STORAGE_KEYS.budget, safeRead("semesterBudget", null));
     const parsed = Number(value);
-    return Number.isFinite(parsed) && parsed > 0 ? parsed : null;
+    return validMoney(parsed, 100000000) ? parsed : null;
   }
 
   function persist() {
