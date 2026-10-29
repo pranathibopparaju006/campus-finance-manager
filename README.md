@@ -1,5 +1,6 @@
 # Campus Finance Manager
 
+[![GitHub Actions](https://github.com/pranathibopparaju006/campus-finance-manager/actions/workflows/static-checks.yml/badge.svg)](https://github.com/pranathibopparaju006/campus-finance-manager/actions/workflows/static-checks.yml)
 **A Student Expense Tracking and Budget Planning Web Application**
 
 [Live Demo](https://pranathibopparaju006.github.io/campus-finance-manager/) | [GitHub Repository](https://github.com/pranathibopparaju006/campus-finance-manager)
@@ -116,3 +117,4 @@ campus-finance-manager/
 **Pranathi**
 
 GitHub: [pranathibopparaju006](https://github.com/pranathibopparaju006)
+
