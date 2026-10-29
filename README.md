@@ -29,6 +29,7 @@ Campus Finance Manager helps college students track daily expenses, manage their
 - Escape user-provided text before displaying it in generated tables and reports.
 - Release report object URLs after initiating downloads.
 - Keep data within the local browser; clearing browser storage or switching devices may remove or hide saved information.
+- GitHub Actions checks JavaScript syntax and verifies that required project files and local assets referenced by the HTML exist.
 
 ## Technology Stack
 
@@ -88,6 +89,9 @@ Do not use this demo to store sensitive financial information. The application d
 
 ```text
 campus-finance-manager/
+├── .github/
+│   └── workflows/
+│       └── static-checks.yml
 ├── index.html
 ├── style.css
 ├── script.js
@@ -104,7 +108,7 @@ campus-finance-manager/
 - Backend API and database persistence
 - Authentication and user-specific accounts
 - PDF and CSV report export
-- Automated unit and end-to-end tests
+- Browser-based end-to-end tests
 - More detailed charts and recurring expenses
 
 ## Author
