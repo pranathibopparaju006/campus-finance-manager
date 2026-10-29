@@ -1,18 +1,60 @@
-name: JavaScript checks
+name: JavaScript and project checks
 
 on:
   push:
   pull_request:
 
 jobs:
-  syntax:
+  static-checks:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
       - name: Check application JavaScript syntax
         run: node --check script.js
+
+      - name: Validate required project files and local assets
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlparse
+
+          root = Path(".")
+          required = ["index.html", "style.css", "script.js", "README.md"]
+          missing = [name for name in required if not (root / name).is_file()]
+          if missing:
+              raise SystemExit(f"Missing required project files: {', '.join(missing)}")
+
+          class AssetParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.assets = []
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "script" and attrs.get("src"):
+                      self.assets.append(attrs["src"])
+                  if tag == "link" and attrs.get("rel") == "stylesheet" and attrs.get("href"):
+                      self.assets.append(attrs["href"])
+
+          parser = AssetParser()
+          parser.feed((root / "index.html").read_text(encoding="utf-8"))
+          missing_assets = []
+          for asset in parser.assets:
+              parsed = urlparse(asset)
+              if parsed.scheme or asset.startswith("//") or asset.startswith("#"):
+                  continue
+              target = root / parsed.path
+              if not target.is_file():
+                  missing_assets.append(asset)
+          if missing_assets:
+              raise SystemExit(f"Missing local assets referenced by index.html: {', '.join(missing_assets)}")
+
+          print("Required files and local HTML assets validated.")
+          PY
