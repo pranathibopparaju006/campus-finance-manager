@@ -12,6 +12,8 @@
     return date.getFullYear() === year && date.getMonth() === month - 1 && date.getDate() === day;
   }
   function validMoney(value, maximum = 10000000) {
+    if (typeof value !== "number" && typeof value !== "string") return false;
+    if (typeof value === "string" && value.trim() === "") return false;
     const amount = Number(value);
     return Number.isFinite(amount) && amount > 0 && amount <= maximum;
   }
