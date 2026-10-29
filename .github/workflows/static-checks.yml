@@ -19,9 +19,10 @@ jobs:
       - name: Check application JavaScript syntax
         run: node --check script.js
 
-      - name: Validate required project files and local assets
+      - name: Validate required files and local references
         run: |
           python - <<'PY'
+          import re
           from html.parser import HTMLParser
           from pathlib import Path
           from urllib.parse import urlparse
@@ -40,7 +41,7 @@ jobs:
                   attrs = dict(attrs)
                   if tag == "script" and attrs.get("src"):
                       self.assets.append(attrs["src"])
-                  if tag == "link" and attrs.get("rel") == "stylesheet" and attrs.get("href"):
+                  if tag == "link" and "stylesheet" in attrs.get("rel", "").split() and attrs.get("href"):
                       self.assets.append(attrs["href"])
 
           parser = AssetParser()
@@ -50,11 +51,22 @@ jobs:
               parsed = urlparse(asset)
               if parsed.scheme or asset.startswith("//") or asset.startswith("#"):
                   continue
-              target = root / parsed.path
-              if not target.is_file():
+              if not (root / parsed.path).is_file():
                   missing_assets.append(asset)
           if missing_assets:
               raise SystemExit(f"Missing local assets referenced by index.html: {', '.join(missing_assets)}")
 
-          print("Required files and local HTML assets validated.")
+          readme = (root / "README.md").read_text(encoding="utf-8")
+          image_paths = re.findall(r"!\[[^\]]*\]\(([^)]+)\)", readme)
+          missing_images = []
+          for image_path in image_paths:
+              parsed = urlparse(image_path)
+              if parsed.scheme or image_path.startswith("//"):
+                  continue
+              if not (root / parsed.path).is_file():
+                  missing_images.append(image_path)
+          if missing_images:
+              raise SystemExit(f"Missing local images referenced by README.md: {', '.join(missing_images)}")
+
+          print("Required files, local HTML assets, and README images validated.")
           PY
